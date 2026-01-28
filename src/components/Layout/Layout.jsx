@@ -1,0 +1,19 @@
+import React from 'react';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import AdBlockDetector from '../Features/AdBlockDetector';
+
+const Layout = ({ children }) => {
+    return (
+        <div className="min-h-screen flex flex-col bg-slate-50 font-sans">
+            <AdBlockDetector />
+            <Navbar />
+            <main className="flex-grow">
+                {children}
+            </main>
+            <Footer />
+        </div>
+    );
+};
+
+export default Layout;
