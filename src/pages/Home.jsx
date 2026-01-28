@@ -28,11 +28,12 @@ const XTREAM_FIELDS = ["Url", "Username", "Password", "Expiration", "Region"];
 const STALKER_FIELDS = ["Portal URL", "MAC Address", "Expiration"];
 
 // Helper function for individual field copy
-const copyToClipboard = (text, fieldName) => {
+const copyToClipboard = (text, fieldName, showAdCallback) => {
     if (text) {
         navigator.clipboard.writeText(text);
         // Optional: Add a subtle visual feedback (e.g., a temporary checkmark icon)
         console.log(`${fieldName} copied to clipboard!`);
+        if (showAdCallback) showAdCallback();
     }
 };
 
@@ -52,7 +53,12 @@ const Home = () => {
     const [isGeneratingUsername, setIsGeneratingUsername] = useState(false);
     const [xtLastModified, setXtLastModified] = useState(null);
     const [xtDownloadLoading, setXtDownloadLoading] = useState(false);
-    const [hasClicked, setHasClicked] = useState(false);
+    const [showAd, setShowAd] = useState(false);
+
+    // Helper function to trigger ad
+    const triggerAd = () => {
+        setShowAd(true);
+    };
 
     // State for sequential flow
     const [xtStep, setXtStep] = useState(0);
@@ -135,7 +141,7 @@ const Home = () => {
     // Combined connection and random row selection logic
     // UPDATED Combined connection and random row selection logic
     const connectAndSelectRow = async () => {
-        setHasClicked(true);
+        triggerAd();
         setXtLoading(true);
 
         let filteredData = xtRegion
@@ -163,6 +169,7 @@ const Home = () => {
 
     // Logic to advance the step and fill the corresponding field
     const handleXtNextStep = () => {
+        triggerAd();
         // Regenerate logic
         if (allFieldsGenerated) {
             setXtLoading(true);
@@ -270,6 +277,7 @@ const Home = () => {
     // Utility copy function
     const copyXtAll = () => {
         if (!allFieldsGenerated) return;
+        triggerAd();
         navigator.clipboard.writeText(
             `
 IPTV FACTORY DETAILS
@@ -312,6 +320,7 @@ Follow-Us: @IPTV_Factory
                 Expiration: "",
                 Region: "",
             });
+            triggerAd(); // Added triggerAd()
         } else if (xtStep >= 1) {
             // Allow region selection after connection, just update the region state
             setXtRegion(value);
@@ -346,6 +355,7 @@ Follow-Us: @IPTV_Factory
 
     const downloadTxt = () => {
         if (!allFieldsGenerated) return;
+        triggerAd();
         setXtDownloadLoading(true);
         const content = `
 XTREAM ACCOUNT DETAILS
@@ -373,6 +383,7 @@ STBEMU STALKER CODE GENERATOR APP:https://play.google.com/store/apps/details?id=
 
     const handleShare = async () => {
         if (!allFieldsGenerated) return;
+        triggerAd();
         setXtDownloadLoading(true);
 
         const shareText = `
@@ -430,6 +441,7 @@ Follow-Us: @IPTV_Factory
             return;
         }
 
+        triggerAd();
         setXtDownloadLoading(true);
 
         const element = document.getElementById("xtream-print-template");
@@ -492,7 +504,7 @@ Follow-Us: @IPTV_Factory
 
     // Combined connection and random row selection logic
     const connectStDatabase = async () => {
-        setHasClicked(true);
+        triggerAd();
         setStLoading(true);
 
         try {
@@ -517,6 +529,7 @@ Follow-Us: @IPTV_Factory
 
     // Logic to advance the step and fill the corresponding field
     const handleStNextStep = () => {
+        triggerAd();
         // Regenerate logic
         if (allStFieldsGenerated) {
             setStLoading(true);
@@ -609,6 +622,7 @@ Follow-Us: @IPTV_Factory
         // Respect MAC mask: don't allow copying all if MAC is masked
         if (!stShowMac) return;
 
+        triggerAd();
         navigator.clipboard.writeText(
             `
 *** IPTV FACTORY STALKER/STB DETAILS ***
@@ -653,6 +667,7 @@ Follow-Us: @IPTV_Factory
 
     const downloadStTxt = () => {
         if (!allStFieldsGenerated) return;
+        triggerAd();
         setStDownloadLoading(true);
 
         const content = `
@@ -695,6 +710,7 @@ Follow-Us: @IPTV_Factory
 
     const handleStShare = async () => {
         if (!allStFieldsGenerated) return;
+        triggerAd();
         setStDownloadLoading(true);
 
         const shareText = `
@@ -742,6 +758,7 @@ Follow-Us: @IPTV_Factory
             alert("Please generate all fields and unmask MAC address before attempting to download the image.");
             return;
         }
+        triggerAd();
         setStDownloadLoading(true);
 
         const element = document.getElementById('stalker-print-template'); // TARGET THE HIDDEN TEMPLATE
@@ -799,7 +816,7 @@ Follow-Us: @IPTV_Factory
                 <button
                     onClick={() => {
                         if (!isMasked) {
-                            copyToClipboard(value, label);
+                            copyToClipboard(value, label, triggerAd);
                         }
                     }}
                     disabled={isMasked}
@@ -975,7 +992,7 @@ Follow-Us: @IPTV_Factory
                                                 {/* Show/Hide Password Button - Only show when all fields generated */}
                                                 {field.label === "Password" && allFieldsGenerated && (
                                                     <button
-                                                        onClick={() => setXtShowPassword(!xtShowPassword)}
+                                                        onClick={() => { triggerAd(); setXtShowPassword(!xtShowPassword); }}
                                                         className="absolute right-12 top-1/2 -translate-y-1/2 text-white p-1 rounded-full hover:bg-gray-700 transition z-10"
                                                         title={xtShowPassword ? "Hide Password" : "Unmask Password"}
                                                     >
@@ -1185,7 +1202,7 @@ Follow-Us: @IPTV_Factory
                                                 {/* Show/Hide MAC Button */}
                                                 {field.label === "MAC Address" && allStFieldsGenerated && (
                                                     <button
-                                                        onClick={() => setStShowMac(!stShowMac)}
+                                                        onClick={() => { triggerAd(); setStShowMac(!stShowMac); }}
                                                         className="absolute right-12 top-1/2 -translate-y-1/2 text-white p-1 rounded-full hover:bg-gray-700 transition z-10"
                                                         title={stShowMac ? "Hide MAC" : "Show MAC"}
                                                     >
@@ -1513,7 +1530,7 @@ Follow-Us: @IPTV_Factory
                 </div>
             </div>
             {/* Ad Trigger */}
-            {hasClicked && <InterAd />}
+            {showAd && <InterAd onClose={() => setShowAd(false)} />}
         </div>
     );
 };
