@@ -40,6 +40,19 @@ const copyToClipboard = (text, fieldName, showAdCallback) => {
         if (showAdCallback) showAdCallback();
     }
 };
+const getR2ModifiedDate = (lastModifiedHeader) => {
+    // If the header is missing, we fall back to the current time
+    const date = lastModifiedHeader ? new Date(lastModifiedHeader) : new Date();
+    
+    return date.toLocaleDateString('en-US', {
+        month: 'short',
+        day: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true,
+    }).replace(/, /g, ' ');
+};
 
 const Home = () => {
 
@@ -148,27 +161,50 @@ const Home = () => {
         triggerAd();
         setXtLoading(true);
 
-        let filteredData = xtRegion
-            ? xtData.filter((r) => r[4] === xtRegion)
-            : xtData;
+        try {
+           
+          const res = await fetch(`${XTREAM_R2}?t=${Date.now()}`); 
+const lastModified = res.headers.get('last-modified');
 
-        if (filteredData.length === 0) {
-            console.warn("No rows found for selected region. Using full dataset.");
-            filteredData = xtData; // Fallback to full data
+// Correctly passing the string to the updated helper
+setXtLastModified(getR2ModifiedDate(lastModified));
+            // // Parse Data
+            const buffer = await res.arrayBuffer();
+            const workbook = XLSX.read(buffer, { type: "array" });
+            const sheetName = workbook.SheetNames[0];
+            const sheet = workbook.Sheets[sheetName];
+            const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+
+            setXtData(jsonData);
+            setXtDataLoaded(true);
+
+            // Row Selection Logic using local jsonData
+            let filteredData = xtRegion
+                ? jsonData.filter((r) => r[4] === xtRegion)
+                : jsonData;
+
+            if (filteredData.length === 0) {
+                console.warn("No rows found for selected region. Using full dataset.");
+                filteredData = jsonData; // Fallback to full data
+            }
+
+            const randomRow =
+                filteredData[Math.floor(Math.random() * filteredData.length)];
+            setXtRow(randomRow);
+
+            setXtConnected(true);
+            setXtStep(1);
+
+            if (xtRegion) {
+                setXtGeneratedFields((prev) => ({ ...prev, Region: xtRegion }));
+            }
+
+        } catch (err) {
+            console.error("Error fetching Xtream data:", err);
+            // Optional: alert ("Failed to connect to database");
+        } finally {
+            setXtLoading(false);
         }
-
-        const randomRow =
-            filteredData[Math.floor(Math.random() * filteredData.length)];
-        setXtRow(randomRow);
-
-        setXtConnected(true);
-        setXtStep(1);
-
-        if (xtRegion) {
-            setXtGeneratedFields((prev) => ({ ...prev, Region: xtRegion }));
-        }
-
-        setXtLoading(false);
     };
 
     // Logic to advance the step and fill the corresponding field
@@ -494,6 +530,7 @@ Follow-Us: @IPTV_Factory
     const [stRow, setStRow] = useState([]);
     const [stLoading, setStLoading] = useState(false);
     const [stDownloadLoading, setStDownloadLoading] = useState(false);
+    const [stLastModified, setStLastModified] = useState(null);
 
     // STATES FOR SEQUENTIAL FLOW
     const [stStep, setStStep] = useState(0);
@@ -512,7 +549,14 @@ Follow-Us: @IPTV_Factory
         setStLoading(true);
 
         try {
-            const res = await fetch(ST_R2);
+            // const res = await fetch(ST_R2);
+            const res = await fetch(`${ST_R2}?t=${Date.now()}`); 
+            const lastModified = res.headers.get('last-modified');
+
+            // Correctly passing the string to the updated helper
+            setStLastModified(getR2ModifiedDate(lastModified));
+            
+
             const buffer = await res.arrayBuffer();
             const workbook = XLSX.read(buffer, { type: "array" });
             const sheetName = workbook.SheetNames[0];
@@ -1174,7 +1218,7 @@ Follow-Us: @IPTV_Factory
                                         <CheckCircle className="w-5 h-5" />
                                         <span>Database Connected</span>
                                         <span className="text-xs text-slate-500 font-normal ml-7">
-                                            Last Updated: {xtLastModified}
+                                            Last Updated: {stLastModified}
                                         </span>
                                     </div>
                                 )}
