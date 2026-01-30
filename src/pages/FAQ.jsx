@@ -172,6 +172,7 @@ const FAQ = () => {
                 </div>
             </div>
 
+         
             {/* FAQ Content */}
             <div className="max-w-5xl mx-auto px-6 lg:px-8 py-16 sm:py-24">
                 <div className="space-y-12">
@@ -194,6 +195,9 @@ const FAQ = () => {
                         </div>
                     ))}
                 </div>
+
+                {/* In-Article Ad - Mid Content */}
+                <InArticleAd adSlot="3845463351" showLabel={true} />
 
                 {/* Still Have Questions Section */}
                 <div className="mt-20 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-3xl p-12 text-center shadow-xl">

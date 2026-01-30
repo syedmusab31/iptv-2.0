@@ -11,9 +11,13 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import * as XLSX from "xlsx";
-import { EyeIcon, ClipboardIcon, CheckCircleIcon, LockClosedIcon, GlobeAltIcon, RocketLaunchIcon } from "@heroicons/react/24/outline";
+import { EyeIcon, ClipboardIcon, LockClosedIcon, GlobeAltIcon } from "@heroicons/react/24/outline";
 import html2canvas from "html2canvas";
 import InterAd from "../components/InterAd";
+import ServiceOverview from "../components/HomeSections/ServiceOverview";
+import PrivacySecurity from "../components/HomeSections/PrivacySecurity";
+import GlobalReach from "../components/HomeSections/GlobalReach";
+import WhyChooseUs from "../components/HomeSections/WhyChooseUs";
 
 
 // Define the URLs for the remote Excel files
@@ -1355,180 +1359,13 @@ Follow-Us: @IPTV_Factory
                 </div>
             </div>
             {/* New Section: Service Overview and Value Proposition */}
-            <div className="py-24 sm:py-32 bg-white relative overflow-hidden">
-                {/* Subtle Accent Stripe/Shadow */}
-                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-purple-500 opacity-50"></div>
-
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
-                    {/* Header Block - Focused and Centered */}
-                    <div className="mx-auto max-w-3xl text-center">
-                        <h2 className="text-xl font-semibold text-slate-500 uppercase tracking-widest">
-                            Seamless Streaming Utility
-                        </h2>
-                        <p className="mt-4 text-5xl font-extrabold text-slate-900 leading-tight">
-                            The Ultimate Toolkit for Content Streamers
-                        </p>
-                        <p className="mt-6 text-lg text-slate-600 max-w-2xl mx-auto leading-7">
-                            In the ever-evolving world of digital media, accessing and managing your preferred content sources should be effortless. Our platform provides a comprehensive suite of powerful and user-friendly tools designed to optimize your viewing experience.
-                        </p>
-                    </div>
-
-                    {/* Expanded Feature Block - Clean, Modern Box with Vertical Emphasis */}
-                    <div className="mx-auto mt-20 max-w-4xl">
-                        <div className="flex bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-100 backdrop-blur-sm">
-
-                            {/* Left Side: Gradient Accent and Icon */}
-                            <div className="flex items-center justify-center p-8 bg-gradient-to-br from-indigo-500 to-purple-600 w-1/4 min-w-[150px]">
-                                <RocketLaunchIcon className="h-12 w-12 text-white/90" />
-                            </div>
-
-                            {/* Right Side: Content */}
-                            <div className="p-10 w-3/4">
-                                <dt className="flex items-center text-2xl font-bold text-slate-900 border-b pb-4 mb-4 border-indigo-50/50">
-                                    <CheckCircleIcon className="h-6 w-6 text-indigo-500 mr-2" />
-                                    Dedicated Focus on User Accessibility and Performance
-                                </dt>
-
-                                <dd className="text-lg text-slate-700 leading-relaxed">
-                                    Our infrastructure is meticulously engineered for maximum throughput and minimal latency, guaranteeing that any codes or profiles generated are delivered almost instantaneously. We prioritize an intuitive user interface that makes complex generation processes simple for everyone, regardless of technical expertise. This commitment to both speed and simplicity is what sets our service apart, providing a consistently superior experience for millions of users worldwide who rely on our tools daily for their entertainment needs.
-                                </dd>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <ServiceOverview />
             {/* New Section: Privacy and Security Commitment */}
-            <div className="py-24 sm:py-32 bg-white">
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div className="mx-auto max-w-3xl text-center">
-                        <h2 className="text-sm font-semibold text-primary-600 uppercase tracking-wide">
-                            Your Trust, Our Priority
-                        </h2>
-                        <p className="mt-3 text-4xl font-extrabold text-slate-900 sm:text-5xl">
-                            Uncompromising Security and Data Confidentiality
-                        </p>
-                        <p className="mt-6 text-xl text-slate-700 leading-relaxed text-left pr-8 pl-8 md:pl-0 md:pr-0">
-                            We understand that privacy is paramount in the digital age. Our platform is built on a foundation of rigorous security protocols, ensuring that every interaction and data transmission is protected using industry-leading encryption standards. We strictly adhere to a no-log policy regarding user-generated content and input. Unlike other services, we do not store, track, or analyze the IPTV codes, Stalker profiles, or playlists you generate, guaranteeing that your personal streaming preferences remain completely anonymous and secure.
-                        </p>
-                    </div>
-
-                    <div className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-10 sm:grid-cols-2 lg:max-w-none">
-                        <div className="rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-lg transition">
-                            <dt className="flex items-center gap-x-3 text-lg font-semibold text-slate-900">
-                                {/* <CheckCircle className="h-6 w-6 text-primary-600" /> */}
-                                End-to-End Encryption
-                            </dt>
-                            <dd className="mt-4 text-slate-600 leading-7">
-                                All data exchanged during the generation process is protected with SSL/TLS encryption. This creates a secure tunnel between your browser and our servers, making it impossible for third parties to intercept or read the information, thus safeguarding your connection credentials from start to finish.
-                            </dd>
-                        </div>
-                        <div className="rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-lg transition">
-                            <dt className="flex items-center gap-x-3 text-lg font-semibold text-slate-900">
-                                {/* <CheckCircle className="h-6 w-6 text-primary-600" /> */}
-                                Ephemeral Processing Policy
-                            </dt>
-                            <dd className="mt-4 text-slate-600 leading-7">
-                                We only hold input data in memory for the immediate time required to generate your output. Once the results are displayed, the associated data is instantly and permanently purged from our system, upholding our commitment to maximum user privacy and zero data retention.
-                            </dd>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <PrivacySecurity />
             {/* New Section: Technology and Global Reach */}
-            <div className="py-24 sm:py-32 bg-gray-50">
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div className="mx-auto max-w-3xl text-center">
-                        <h2 className="text-sm font-semibold text-primary-600 uppercase tracking-wide">
-                            Engineered for Excellence
-                        </h2>
-                        <p className="mt-3 text-4xl font-extrabold text-slate-900 sm:text-5xl">
-                            Global Infrastructure for Uninterrupted Service
-                        </p>
-                        <p className="mt-6 text-xl text-slate-700 leading-relaxed text-left pr-8 pl-8 md:pl-0 md:pr-0">
-                            Our technology platform is hosted on globally distributed, redundant cloud infrastructure. This advanced setup ensures not only the 99.99% uptime reliability you expect, but also provides geo-optimized performance. Users from any corner of the globe will experience the same lightning-fast generation speeds. This robust and scalable architecture is constantly monitored and updated by our engineering team to pre-emptively address any potential issues, maintaining our standing as the most dependable toolset in the streaming utility space.
-                        </p>
-                    </div>
-
-                    <div className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-10 sm:grid-cols-3 lg:max-w-none">
-                        <div className="rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-lg transition bg-white">
-                            <dt className="flex items-center gap-x-3 text-lg font-semibold text-slate-900">
-                                {/* <CheckCircle className="h-6 w-6 text-primary-600" /> */}
-                                Scalable Cloud Architecture
-                            </dt>
-                            <dd className="mt-4 text-slate-600 leading-7">
-                                Built on modern, autoscaling cloud platforms, our service seamlessly handles massive spikes in demand without any degradation in performance. This scalability means your tool access remains consistently fast, day or night.
-                            </dd>
-                        </div>
-                        <div className="rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-lg transition bg-white">
-                            <dt className="flex items-center gap-x-3 text-lg font-semibold text-slate-900">
-                                {/* <CheckCircle className="h-6 w-6 text-primary-600" /> */}
-                                Dedicated Support
-                            </dt>
-                            <dd className="mt-4 text-slate-600 leading-7">
-                                Beyond the automated tools, our experienced support team is available to assist with any technical inquiries or usage questions, ensuring you get the most out of our comprehensive utility set.
-                            </dd>
-                        </div>
-                        <div className="rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-lg transition bg-white">
-                            <dt className="flex items-center gap-x-3 text-lg font-semibold text-slate-900">
-                                {/* <CheckCircle className="h-6 w-6 text-primary-600" /> */}
-                                Continuous Innovation
-                            </dt>
-                            <dd className="mt-4 text-slate-600 leading-7">
-                                We are dedicated to evolving our services. Regular updates introduce new features and compatibility adjustments, keeping our tools relevant and functional with the latest streaming technologies.
-                            </dd>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {/* Features Section (Unchanged) */}
-            <div className="py-24 sm:py-32 bg-white">
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div className="mx-auto max-w-3xl text-center">
-                        <h2 className="text-sm font-semibold text-primary-600 uppercase tracking-wide">
-                            Why Choose Us
-                        </h2>
-                        <p className="mt-3 text-4xl font-extrabold text-slate-900 sm:text-5xl">
-                            Everything You Need to Power Your Streams
-                        </p>
-                        <p className="mt-6 text-lg text-slate-600 leading-relaxed">
-                            Our tools are engineered for professionals who demand reliability,
-                            speed, and security ensuring a seamless experience every time.
-                        </p>
-                    </div>
-                    <div className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:max-w-none">
-                        <div className="rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-md transition">
-                            <dt className="flex items-center gap-x-3 text-lg font-semibold text-slate-900">
-                                <CheckCircle className="h-6 w-6 text-primary-600" />
-                                High Availability
-                            </dt>
-                            <dd className="mt-4 text-slate-600 leading-7">
-                                99.9% uptime with enterprise-grade infrastructure to keep your
-                                generation services running flawlessly.
-                            </dd>
-                        </div>
-                        <div className="rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-md transition">
-                            <dt className="flex items-center gap-x-3 text-lg font-semibold text-slate-900">
-                                <CheckCircle className="h-6 w-6 text-primary-600" />
-                                Secure Processing
-                            </dt>
-                            <dd className="mt-4 text-slate-600 leading-7">
-                                Your data is fully encrypted, processed instantly, and never stored
-                                longer than required maximum privacy.
-                            </dd>
-                        </div>
-                        <div className="rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-md transition">
-                            <dt className="flex items-center gap-x-3 text-lg font-semibold text-slate-900">
-                                <CheckCircle className="h-6 w-6 text-primary-600" />
-                                Instant Results
-                            </dt>
-                            <dd className="mt-4 text-slate-600 leading-7">
-                                Generate IPTV codes, stalker profiles, and playlist
-                            </dd>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <GlobalReach />
+            {/* Features Section */}
+            <WhyChooseUs />
             {/* Ad Trigger */}
             {showAd && <InterAd onClose={() => setShowAd(false)} />}
         </div>

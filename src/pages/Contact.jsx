@@ -1,11 +1,8 @@
 import React, { useState, useRef } from "react";
 // In a real project, you would install emailjs-com, but we'll use a placeholder import here.
 import emailjs from 'emailjs-com';
+import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 
-
-
-import {EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
-// --- PLACEHOLDER EMAILJS CREDENTIALS ---
 // REPLACE THESE WITH YOUR ACTUAL KEYS
 
 
@@ -43,7 +40,7 @@ const Contact = () => {
     // Handler for form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         // Basic validation check
         if (!formData.firstName || !formData.lastName || !formData.email || !formData.message || !formData.subject || !formData.phone) {
             setStatus('error');
@@ -56,9 +53,9 @@ const Contact = () => {
             // Note: emailjs.sendForm requires the service ID, template ID, the form reference, and the public key
             // The form fields must have 'name' attributes matching your EmailJS template variables.
             const result = await emailjs.sendForm(
-                SERVICE_ID, 
-                TEMPLATE_ID, 
-                form.current, 
+                SERVICE_ID,
+                TEMPLATE_ID,
+                form.current,
                 PUBLIC_KEY
             );
 
@@ -98,12 +95,13 @@ const Contact = () => {
                     </p>
                 </div>
 
+
                 {/* Contact Info + Form */}
                 <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-24">
                     {/* Left: Info */}
                     <div className="space-y-8">
                         <h3 className="text-3xl font-extrabold text-slate-900 mb-6 border-b pb-2 border-indigo-100">Contact Info</h3>
-                        
+
                         <div className="flex items-start space-x-4">
                             <EnvelopeIcon className="h-6 w-6 text-indigo-600 mt-1 flex-shrink-0" />
                             <div>
@@ -118,16 +116,17 @@ const Contact = () => {
                                 <p className="text-slate-600">+212-7001-12722</p>
                             </div>
                         </div>
-                            
 
-                       
+
+
                     </div>
+
 
                     {/* Right: Contact Form */}
                     <div className="bg-white rounded-2xl p-8 shadow-xl border border-indigo-100">
                         <h3 className="text-2xl font-bold text-slate-900 mb-6">Quick Contact</h3>
                         <p className="mb-6 text-slate-600">Interested in discussing? Please feel free to get in touch using the form below.</p>
-                        
+
                         <form ref={form} onSubmit={handleSubmit} className="space-y-4">
                             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                                 <input
@@ -183,7 +182,7 @@ const Contact = () => {
                                 required
                                 className="w-full rounded-lg border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:outline-none focus:ring-indigo-600 sm:text-sm"
                             />
-                            
+
                             {/* Status Messages */}
                             {status === 'success' && (
                                 <p className="text-sm font-medium text-green-600 bg-green-50 p-3 rounded-lg border border-green-200">
@@ -200,8 +199,8 @@ const Contact = () => {
                                 type="submit"
                                 disabled={loading}
                                 className={`w-full rounded-md px-4 py-2.5 text-white font-semibold shadow focus:ring-2 focus:outline-none transition-opacity duration-300 
-                                    ${loading 
-                                        ? 'bg-indigo-400 cursor-not-allowed opacity-75' 
+                                    ${loading
+                                        ? 'bg-indigo-400 cursor-not-allowed opacity-75'
                                         : 'bg-indigo-600 hover:bg-indigo-500 focus:ring-indigo-600'
                                     }`}
                             >

@@ -9,6 +9,7 @@ import {
     DevicePhoneMobileIcon
 } from "@heroicons/react/24/outline";
 
+
 const blogPosts = [
     {
         id: 1,
@@ -646,6 +647,7 @@ const Blog = () => {
                 </div>
             </div>
 
+          
             {/* Blog Posts Grid */}
             <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 sm:py-24">
                 <div className="grid gap-12 lg:grid-cols-1">
