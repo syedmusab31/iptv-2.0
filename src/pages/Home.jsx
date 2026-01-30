@@ -163,11 +163,10 @@ const Home = () => {
 
         try {
            
-          const res = await fetch(`${XTREAM_R2}?t=${Date.now()}`); 
-const lastModified = res.headers.get('last-modified');
-
-// Correctly passing the string to the updated helper
-setXtLastModified(getR2ModifiedDate(lastModified));
+            const res = await fetch(`${XTREAM_R2}?t=${Date.now()}`); 
+            const lastModified = res.headers.get('last-modified');
+            // Correctly passing the string to the updated helper
+            setXtLastModified(getR2ModifiedDate(lastModified));
             // // Parse Data
             const buffer = await res.arrayBuffer();
             const workbook = XLSX.read(buffer, { type: "array" });
