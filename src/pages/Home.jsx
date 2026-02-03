@@ -13,11 +13,11 @@ import { Link } from "react-router-dom";
 import * as XLSX from "xlsx";
 import { EyeIcon, ClipboardIcon, LockClosedIcon, GlobeAltIcon } from "@heroicons/react/24/outline";
 import html2canvas from "html2canvas";
-import InterAd from "../components/InterAd";
 import ServiceOverview from "../components/HomeSections/ServiceOverview";
 import PrivacySecurity from "../components/HomeSections/PrivacySecurity";
 import GlobalReach from "../components/HomeSections/GlobalReach";
 import WhyChooseUs from "../components/HomeSections/WhyChooseUs";
+import TechnicalOverview from "../components/HomeSections/TechnicalOverview";
 
 
 // Define the URLs for the remote Excel files
@@ -32,18 +32,17 @@ const XTREAM_FIELDS = ["Url", "Username", "Password", "Expiration", "Region"];
 const STALKER_FIELDS = ["Portal URL", "MAC Address", "Expiration"];
 
 // Helper function for individual field copy
-const copyToClipboard = (text, fieldName, showAdCallback) => {
+const copyToClipboard = (text, fieldName) => {
     if (text) {
         navigator.clipboard.writeText(text);
         // Optional: Add a subtle visual feedback (e.g., a temporary checkmark icon)
         console.log(`${fieldName} copied to clipboard!`);
-        if (showAdCallback) showAdCallback();
     }
 };
 const getR2ModifiedDate = (lastModifiedHeader) => {
     // If the header is missing, we fall back to the current time
     const date = lastModifiedHeader ? new Date(lastModifiedHeader) : new Date();
-    
+
     return date.toLocaleDateString('en-US', {
         month: 'short',
         day: '2-digit',
@@ -70,12 +69,6 @@ const Home = () => {
     const [isGeneratingUsername, setIsGeneratingUsername] = useState(false);
     const [xtLastModified, setXtLastModified] = useState(null);
     const [xtDownloadLoading, setXtDownloadLoading] = useState(false);
-    const [showAd, setShowAd] = useState(false);
-
-    // Helper function to trigger ad
-    const triggerAd = () => {
-        setShowAd(true);
-    };
 
     // State for sequential flow
     const [xtStep, setXtStep] = useState(0);
@@ -158,12 +151,11 @@ const Home = () => {
     // Combined connection and random row selection logic
     // UPDATED Combined connection and random row selection logic
     const connectAndSelectRow = async () => {
-        triggerAd();
         setXtLoading(true);
 
         try {
-           
-            const res = await fetch(`${XTREAM_R2}?t=${Date.now()}`); 
+
+            const res = await fetch(`${XTREAM_R2}?t=${Date.now()}`);
             const lastModified = res.headers.get('last-modified');
             // Correctly passing the string to the updated helper
             setXtLastModified(getR2ModifiedDate(lastModified));
@@ -208,7 +200,6 @@ const Home = () => {
 
     // Logic to advance the step and fill the corresponding field
     const handleXtNextStep = () => {
-        triggerAd();
         // Regenerate logic
         if (allFieldsGenerated) {
             setXtLoading(true);
@@ -287,22 +278,22 @@ const Home = () => {
     // Logic for the main button text
     const getButtonText = () => {
         if (xtLoading) return "Loading...";
-        if (!xtConnected) return "Connect to Database";
+        if (!xtConnected) return "Load Configuration Demo";
 
-        if (allFieldsGenerated) return "Regenerate";
+        if (allFieldsGenerated) return "Reset Formatter";
 
         const fieldIndex = xtStep - 1;
         let fieldName = XTREAM_FIELDS[fieldIndex];
 
         if (xtStep === 4 && xtRegion) {
-            return "Generate Expiration Time";
+            return "Set Expiration Time";
         }
 
         if (xtStep >= 1 && xtStep <= 5) {
-            return `Generate ${fieldName}`;
+            return `Reveal ${fieldName}`;
         }
 
-        return "Start Generation";
+        return "Start Formatting";
     };
 
     // Field definitions for rendering inputs
@@ -316,7 +307,7 @@ const Home = () => {
     // Utility copy function
     const copyXtAll = () => {
         if (!allFieldsGenerated) return;
-        triggerAd();
+
         navigator.clipboard.writeText(
             `
 IPTV FACTORY DETAILS
@@ -359,7 +350,7 @@ Follow-Us: @IPTV_Factory
                 Expiration: "",
                 Region: "",
             });
-            triggerAd(); // Added triggerAd()
+
         } else if (xtStep >= 1) {
             // Allow region selection after connection, just update the region state
             setXtRegion(value);
@@ -394,7 +385,7 @@ Follow-Us: @IPTV_Factory
 
     const downloadTxt = () => {
         if (!allFieldsGenerated) return;
-        triggerAd();
+
         setXtDownloadLoading(true);
         const content = `
 XTREAM ACCOUNT DETAILS
@@ -422,7 +413,7 @@ STBEMU STALKER CODE GENERATOR APP:https://play.google.com/store/apps/details?id=
 
     const handleShare = async () => {
         if (!allFieldsGenerated) return;
-        triggerAd();
+
         setXtDownloadLoading(true);
 
         const shareText = `
@@ -480,7 +471,7 @@ Follow-Us: @IPTV_Factory
             return;
         }
 
-        triggerAd();
+
         setXtDownloadLoading(true);
 
         const element = document.getElementById("xtream-print-template");
@@ -544,17 +535,17 @@ Follow-Us: @IPTV_Factory
 
     // Combined connection and random row selection logic
     const connectStDatabase = async () => {
-        triggerAd();
+
         setStLoading(true);
 
         try {
             // const res = await fetch(ST_R2);
-            const res = await fetch(`${ST_R2}?t=${Date.now()}`); 
+            const res = await fetch(`${ST_R2}?t=${Date.now()}`);
             const lastModified = res.headers.get('last-modified');
 
             // Correctly passing the string to the updated helper
             setStLastModified(getR2ModifiedDate(lastModified));
-            
+
 
             const buffer = await res.arrayBuffer();
             const workbook = XLSX.read(buffer, { type: "array" });
@@ -576,7 +567,7 @@ Follow-Us: @IPTV_Factory
 
     // Logic to advance the step and fill the corresponding field
     const handleStNextStep = () => {
-        triggerAd();
+
         // Regenerate logic
         if (allStFieldsGenerated) {
             setStLoading(true);
@@ -640,18 +631,18 @@ Follow-Us: @IPTV_Factory
     // Logic for the main button text
     const getStButtonText = () => {
         if (stLoading) return "Loading...";
-        if (!stConnected) return "Connect to Database";
+        if (!stConnected) return "Load Configuration Demo";
 
-        if (allStFieldsGenerated) return "Regenerate";
+        if (allStFieldsGenerated) return "Reset Formatter";
 
         const fieldIndex = stStep - 1;
         const fieldName = STALKER_FIELDS[fieldIndex];
 
         if (stStep >= 1 && stStep <= STALKER_FIELDS.length) {
-            return `Generate ${fieldName}`;
+            return `Reveal ${fieldName}`;
         }
 
-        return "Start Generation";
+        return "Start Formatting";
     };
 
     // Field definitions for rendering Stalker inputs
@@ -669,7 +660,7 @@ Follow-Us: @IPTV_Factory
         // Respect MAC mask: don't allow copying all if MAC is masked
         if (!stShowMac) return;
 
-        triggerAd();
+
         navigator.clipboard.writeText(
             `
 *** IPTV FACTORY STALKER/STB DETAILS ***
@@ -714,7 +705,7 @@ Follow-Us: @IPTV_Factory
 
     const downloadStTxt = () => {
         if (!allStFieldsGenerated) return;
-        triggerAd();
+
         setStDownloadLoading(true);
 
         const content = `
@@ -757,7 +748,7 @@ Follow-Us: @IPTV_Factory
 
     const handleStShare = async () => {
         if (!allStFieldsGenerated) return;
-        triggerAd();
+
         setStDownloadLoading(true);
 
         const shareText = `
@@ -805,7 +796,7 @@ Follow-Us: @IPTV_Factory
             alert("Please generate all fields and unmask MAC address before attempting to download the image.");
             return;
         }
-        triggerAd();
+
         setStDownloadLoading(true);
 
         const element = document.getElementById('stalker-print-template'); // TARGET THE HIDDEN TEMPLATE
@@ -863,7 +854,7 @@ Follow-Us: @IPTV_Factory
                 <button
                     onClick={() => {
                         if (!isMasked) {
-                            copyToClipboard(value, label, triggerAd);
+                            copyToClipboard(value, label);
                         }
                     }}
                     disabled={isMasked}
@@ -902,8 +893,8 @@ Follow-Us: @IPTV_Factory
                                 Welcome to IPTV FACTORY.
                             </h1>
                             <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-xl">
-                                Generate Xtream and STBEMU codes instantly.
-                                Fast process, simple steps, and accurate codes.
+                                Format Xtream and STBEMU configurations instantly.
+                                Fast process, simple steps, and accurate formats.
                             </p>
                             <div className="mt-6 flex items-center gap-x-6">
                                 <a
@@ -940,10 +931,10 @@ Follow-Us: @IPTV_Factory
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="mx-auto max-w-2xl text-center">
                         <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-                            Select Your Tool
+                            Select Configuration Protocol
                         </h2>
                         <p className="mt-2 text-lg leading-8 text-slate-600">
-                            Choose the generator you need to get started immediately.
+                            Choose the protocol formatter you need to get started immediately.
                         </p>
                     </div>
 
@@ -956,7 +947,7 @@ Follow-Us: @IPTV_Factory
                                 : "bg-white text-slate-700 ring-slate-200"
                                 }`}
                         >
-                            Xtream Generator
+                            Xtream Toolkit
                         </button>
                         <button
                             onClick={() => setActiveTab("stbemu")}
@@ -965,7 +956,7 @@ Follow-Us: @IPTV_Factory
                                 : "bg-white text-slate-700 ring-slate-200"
                                 }`}
                         >
-                            Stbemu Generator
+                            Stbemu Toolkit
                         </button>
                     </div>
 
@@ -975,7 +966,7 @@ Follow-Us: @IPTV_Factory
                             <div className="bg-white p-4 rounded-3xl ring-1 ring-slate-200 shadow-sm space-y-6">
                                 {!xtConnected && (
                                     <p className="text-sm text-slate-500">
-                                        Connect to the database using button below to start generating your Xtream account credentials.
+                                        Connect to the database using button below to start formatting your Xtream account credentials.
                                     </p>
                                 )
 
@@ -1039,7 +1030,7 @@ Follow-Us: @IPTV_Factory
                                                 {/* Show/Hide Password Button - Only show when all fields generated */}
                                                 {field.label === "Password" && allFieldsGenerated && (
                                                     <button
-                                                        onClick={() => { triggerAd(); setXtShowPassword(!xtShowPassword); }}
+                                                        onClick={() => { setXtShowPassword(!xtShowPassword); }}
                                                         className="absolute right-12 top-1/2 -translate-y-1/2 text-white p-1 rounded-full hover:bg-gray-700 transition z-10"
                                                         title={xtShowPassword ? "Hide Password" : "Unmask Password"}
                                                     >
@@ -1249,7 +1240,7 @@ Follow-Us: @IPTV_Factory
                                                 {/* Show/Hide MAC Button */}
                                                 {field.label === "MAC Address" && allStFieldsGenerated && (
                                                     <button
-                                                        onClick={() => { triggerAd(); setStShowMac(!stShowMac); }}
+                                                        onClick={() => { setStShowMac(!stShowMac); }}
                                                         className="absolute right-12 top-1/2 -translate-y-1/2 text-white p-1 rounded-full hover:bg-gray-700 transition z-10"
                                                         title={stShowMac ? "Hide MAC" : "Show MAC"}
                                                     >
@@ -1407,10 +1398,11 @@ Follow-Us: @IPTV_Factory
             <PrivacySecurity />
             {/* New Section: Technology and Global Reach */}
             <GlobalReach />
+            {/* Technical Overview Section */}
+            <TechnicalOverview />
+
             {/* Features Section */}
             <WhyChooseUs />
-            {/* Ad Trigger */}
-            {showAd && <InterAd onClose={() => setShowAd(false)} />}
         </div>
     );
 };

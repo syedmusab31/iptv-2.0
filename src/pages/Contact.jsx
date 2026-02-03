@@ -106,7 +106,7 @@ const Contact = () => {
                             <EnvelopeIcon className="h-6 w-6 text-indigo-600 mt-1 flex-shrink-0" />
                             <div>
                                 <h4 className="font-semibold text-slate-900">Email</h4>
-                                <p className="text-slate-600">mohcin15000@gmail.com</p>
+                                <p className="text-slate-600">support@iptv-factory.com</p>
                             </div>
                         </div>
                         <div className="flex items-start space-x-4">

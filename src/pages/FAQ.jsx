@@ -196,9 +196,6 @@ const FAQ = () => {
                     ))}
                 </div>
 
-                {/* In-Article Ad - Mid Content */}
-                <InArticleAd adSlot="3845463351" showLabel={true} />
-
                 {/* Still Have Questions Section */}
                 <div className="mt-20 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-3xl p-12 text-center shadow-xl">
                     <h3 className="text-3xl font-bold text-slate-900 mb-4">

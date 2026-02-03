@@ -84,4 +84,42 @@
     <priority>0.5</priority>
   </url>
 
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://iptv-factory.com/blog/understanding-iptv-technology</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iptv-factory.com/blog/xtream-codes-vs-stalker-middleware</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iptv-factory.com/blog/choose-legitimate-iptv-service-provider</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iptv-factory.com/blog/optimizing-iptv-streaming-network-setup</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iptv-factory.com/blog/iptv-on-mobile-setup-guide</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iptv-factory.com/blog/iptv-legality-global-perspective</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
