@@ -47,9 +47,9 @@ const PerformanceMetrics = () => {
     return (
         <>
             <SEO
-                title="Performance & SEO Metrics"
-                description="IPTV Factory performance metrics, SEO optimization details, and technical specifications. Learn about our lightning-fast load times and search engine optimization."
-                keywords="IPTV performance, website speed, SEO optimization, Core Web Vitals, page load time, mobile optimization, search engine ranking"
+                title="Performance Metrics - IPTV Factory's Technical Standards"
+                description="IPTV Factory performance metrics, SEO optimization, and technical specifications. Lightning-fast load times and mobile-optimized for best user experience."
+                keywords="IPTV performance, website speed, SEO optimization, Core Web Vitals, page speed, mobile optimization, technical standards"
             />
 
             <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">

@@ -8,11 +8,11 @@ const GlobalReach = () => {
                     <h2 className="text-sm font-semibold text-primary-600 uppercase tracking-wide">
                         Engineered for Excellence
                     </h2>
-                    <p className="mt-3 text-4xl font-extrabold text-slate-900 sm:text-5xl">
+                    <p className="mt-3 text-3xl sm:text-4xl font-bold text-slate-900">
                         Global Infrastructure for Uninterrupted Service
                     </p>
-                    <p className="mt-6 text-xl text-slate-700 leading-relaxed text-left pr-8 pl-8 md:pl-0 md:pr-0">
-                        Our technology platform is hosted on globally distributed, redundant cloud infrastructure. This advanced setup ensures not only the 99.99% uptime reliability you expect, but also provides geo-optimized performance. Users from any corner of the globe will experience the same lightning-fast generation speeds. This robust and scalable architecture is constantly monitored and updated by our engineering team to pre-emptively address any potential issues, maintaining our standing as the most dependable toolset in the streaming utility space.
+                    <p className="mt-6 text-base text-slate-700 leading-relaxed text-left pr-8 pl-8 md:pl-0 md:pr-0">
+                        Running across a network of backup-powered data centers worldwide, the system stays live almost all the time. Because it lives in multiple places at once, speed doesn’t drop no matter where someone logs in from. Fast response times stay consistent, whether accessed from Tokyo or Lisbon. Engineers watch performance around the clock, swapping in updates before hiccups arise. Dependability isn’t claimed here - it’s built into how everything runs behind the scenes.
                     </p>
                 </div>
 
@@ -23,7 +23,7 @@ const GlobalReach = () => {
                             Scalable Cloud Architecture
                         </dt>
                         <dd className="mt-4 text-slate-600 leading-7">
-                            Built on modern, autoscaling cloud platforms, our service seamlessly handles massive spikes in demand without any degradation in performance. This scalability means your tool access remains consistently fast, day or night.
+                            When demand jumps, the system stretches to meet it - running on up-to-date cloud infrastructure that adjusts automatically. Speed stays steady no matter when you log in, thanks to built-in room for growth.
                         </dd>
                     </div>
                     <div className="rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-lg transition bg-white">
@@ -32,7 +32,7 @@ const GlobalReach = () => {
                             Dedicated Support
                         </dt>
                         <dd className="mt-4 text-slate-600 leading-7">
-                            Beyond the automated tools, our experienced support team is available to assist with any technical inquiries or usage questions, ensuring you get the most out of our comprehensive utility set.
+                          When tools aren’t enough, real people stand by to help troubleshoot or explain features, so navigating the full range of functions feels less like guessing.
                         </dd>
                     </div>
                     <div className="rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-lg transition bg-white">

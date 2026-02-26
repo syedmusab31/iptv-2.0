@@ -12,6 +12,7 @@ const Contact = lazy(() => import('./pages/Contact'));
 const HowToUse = lazy(() => import('./pages/HowToUse'));
 const FAQ = lazy(() => import('./pages/FAQ'));
 const Blog = lazy(() => import('./pages/Blog'));
+const BlogPost = lazy(() => import('./pages/BlogPost'));
 const PrivacyPolicy = lazy(() => import('./pages/Legal/PrivacyPolicy'));
 const TermsConditions = lazy(() => import('./pages/Legal/TermsConditions'));
 const TermsService = lazy(() => import('./pages/Legal/TermsService'));
@@ -35,6 +36,7 @@ function App() {
             <Route path="/how-to-use" element={<HowToUse />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/legal/privacy" element={<PrivacyPolicy />} />
             <Route path="/legal/terms" element={<TermsConditions />} />
             <Route path="/legal/service" element={<TermsService />} />

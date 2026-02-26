@@ -155,6 +155,8 @@
 
 
 import React, { useState } from "react";
+import SEO from "../components/SEO";
+import Breadcrumb from "../components/Breadcrumb";
 import {
   Play,
   Code,
@@ -239,19 +241,19 @@ const compliancePoints = [
   {
     title: "100% Legal Use Policy",
     description:
-      "Our generators strictly format codes for legitimate, paid IPTV subscriptions. We do not provide or generate content access, only configuration strings.",
+      "Avoiding any actual streams, our tools shape code setups for verified subscription services. Instead of handing out entry points, they build setup lines used by real accounts.",
     icon: ShieldCheck,
   },
   {
     title: "Data Protection Guarantee",
     description:
-      "All generated information is ephemeral and not stored. We prioritize user privacy and secure connection protocols.",
+      "Once created, data disappears - never saved. Privacy matters most, so connections stay locked down by design.",
     icon: Database,
   },
   {
     title: "No Content Hosting",
     description:
-      "We are a tool provider, not a content host. This platform does not stream, store, or link to any copyrighted media.",
+      "Not here to hold your files. Instead think of us as handing out wrenches, not keeping movies on shelves. Streaming? Nope. Saving videos? Not happening. Tying together pirated shows? That is off the table too.",
     icon: Code,
   },
 ];
@@ -260,17 +262,17 @@ const compliancePoints = [
 const troubleshootingTips = [
   {
     title: "Check Subscription Status",
-    description: "Ensure your IPTV service subscription is active and paid before using the generator.",
+    description: "Your IPTV subscription must be running, so check it is paid up first thing. Before anything else, confirm the access hasn’t lapsed. Payment status matters most - keep that current. Access tools only after verifying your account stands open. Running the generator without valid access causes problems later. Stay clear of glitches by making sure everything’s settled ahead of time.",
     icon: Clock,
   },
   {
     title: "Verify Network Connection",
-    description: "Confirm you have a stable and fast internet connection (Wi-Fi or Ethernet) for successful configuration.",
+    description: "Check that your internet works well - either through Wi-Fi or cable - so setup goes smoothly. Connection quality matters when setting things up. A steady signal helps avoid hiccups later on. Slow or spotty links might cause problems during steps. Make sure it is reliable before moving forward.  q",
     icon: Wifi,
   },
   {
     title: "Refer to Your Provider",
-    description: "For specific portal URLs or Xtream API credentials, always consult your licensed IPTV service provider.",
+    description: "Check with your official IPTV provider whenever you need exact portal links or login details for Xtream API access.",
     icon: LifeBuoy,
   },
 ];
@@ -280,7 +282,14 @@ const HowToUse = () => {
   const steps = [globalStep, ...toolsData[activeTool]]; // prepend global step
 
   return (
-    <div className="bg-gradient-to-b from-gray-50 via-white to-indigo-50 py-24 sm:py-32">
+    <>
+      <SEO
+        title="How to Use IPTV Factory - Setup Guide & Tutorial"
+        description="Complete step-by-step guide to using IPTV Factory code generators. Learn to generate Xtream codes and Stalker configuration in minutes."
+        keywords="IPTV setup tutorial, how to use IPTV, code generator guide, Xtream code setup, Stalker MAC setup, IPTV configuration, beginner guide"
+      />
+      <Breadcrumb />
+      <div className="bg-gradient-to-b from-gray-50 via-white to-indigo-50 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         
         {/* Main Header Section */}
@@ -378,19 +387,27 @@ const HowToUse = () => {
               <li className="flex items-start">
                 <Key className="flex-shrink-0 h-6 w-6 text-purple-500 mr-3 mt-1" />
                 <div>
-                  <strong className="text-slate-900">API Credentials:</strong> You must possess a valid username and password supplied by your paid IPTV service for the Xtream Generator to function correctly.
+                  <strong className="text-slate-900">API Credentials:</strong> Working with API credentials means having access details provided through your subscription. A login name becomes necessary when setting up the Xtream Generator. The system needs a proper password to operate as intended. Without these entries, functionality fails entirely.
                 </div>
               </li>
               <li className="flex items-start">
                 <Code className="flex-shrink-0 h-6 w-6 text-purple-500 mr-3 mt-1" />
                 <div>
-                  <strong className="text-slate-900">Stalker Portal URL:</strong> For the Stalker Generator, you need the exact portal URL provided by your licensed service. This is the endpoint for configuration.
+                  <strong className="text-slate-900">Stalker Portal URL:</strong> 
+Start here: the Stalker Portal URL must match exactly what your authorized provider gives you. Not just any link will work - it has to be the right one. That address becomes the base for setup details. Without it, nothing configures properly.
+
+
+
+
+
+
                 </div>
               </li>
               <li className="flex items-start">
                 <Download className="flex-shrink-0 h-6 w-6 text-purple-500 mr-3 mt-1" />
                 <div>
-                  <strong className="text-slate-900">Target Device/App:</strong> Ensure you have the correct IPTV client application installed (e.g., Smart IPTV, TiviMate, etc.) where you will input the generated codes.
+                  <strong className="text-slate-900">Target Device/App:</strong> 
+Start by checking your device has the right app ready - like Smart IPTV or TiviMate - for entering those codes later. While setting up, make sure it's one made for streaming these channels smoothly. Before anything else, grab that software first so things work when the time comes.
                 </div>
               </li>
             </ul>
@@ -420,7 +437,8 @@ const HowToUse = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

@@ -6,6 +6,9 @@ const SEO = ({
     description,
     keywords,
     ogImage = '/favicon.png',
+    ogImageWidth = 1200,
+    ogImageHeight = 630,
+    twitterHandle = '@IPTVFactory',
     canonical
 }) => {
     const location = useLocation();
@@ -51,8 +54,20 @@ const SEO = ({
         }
 
         updateMetaTag('og:url', currentUrl, true);
-        updateMetaTag('og:image', `${baseUrl}${ogImage}`, true);
-        updateMetaTag('twitter:image', `${baseUrl}${ogImage}`);
+        updateMetaTag('og:type', 'article', true);
+        
+        // Update image tags with dimensions
+        const imageUrl = `${baseUrl}${ogImage}`;
+        updateMetaTag('og:image', imageUrl, true);
+        updateMetaTag('og:image:width', ogImageWidth.toString(), true);
+        updateMetaTag('og:image:height', ogImageHeight.toString(), true);
+        updateMetaTag('og:image:type', 'image/jpeg', true);
+        
+        // Twitter Card tags
+        updateMetaTag('twitter:card', 'summary_large_image');
+        updateMetaTag('twitter:site', twitterHandle);
+        updateMetaTag('twitter:image', imageUrl);
+        updateMetaTag('twitter:creator', twitterHandle);
 
         // Update canonical link
         let canonicalLink = document.querySelector('link[rel="canonical"]');
@@ -63,7 +78,7 @@ const SEO = ({
         }
         canonicalLink.setAttribute('href', currentUrl);
 
-    }, [title, description, keywords, ogImage, currentUrl]);
+    }, [title, description, keywords, ogImage, ogImageWidth, ogImageHeight, twitterHandle, currentUrl]);
 
     return null;
 };

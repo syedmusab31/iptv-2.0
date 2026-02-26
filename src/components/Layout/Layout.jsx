@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
         <div className="min-h-screen flex flex-col bg-slate-50 font-sans">
             <AdBlockDetector />
             <Navbar />
-            <TopBarAd />
+            {/* <TopBarAd /> */}
             <main className="flex-grow">
                 {children}
             </main>

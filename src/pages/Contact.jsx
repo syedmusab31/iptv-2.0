@@ -1,6 +1,8 @@
 import React, { useState, useRef } from "react";
 // In a real project, you would install emailjs-com, but we'll use a placeholder import here.
 import emailjs from 'emailjs-com';
+import SEO from "../components/SEO";
+import Breadcrumb from "../components/Breadcrumb";
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 
 // REPLACE THESE WITH YOUR ACTUAL KEYS
@@ -82,16 +84,22 @@ const Contact = () => {
     };
 
     return (
-        <div className="bg-gray-50 py-16 sm:py-24">
+        <>
+            <SEO
+                title="Contact IPTV Factory - Get Support"
+                description="Contact IPTV Factory for support, questions about code generators, and IPTV assistance. Fast, professional customer service team available."
+                keywords="IPTV support, contact IPTV Factory, customer service, IPTV help, technical support, code generator help, contact us"
+            />
+            <Breadcrumb />
+            <div className="bg-gray-50 py-16 sm:py-24">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 {/* Header */}
                 <div className="mx-auto max-w-2xl text-center">
-                    <h2 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-                        Contact With Us
+                    <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+                        Get In Touch
                     </h2>
-                    <p className="mt-4 text-lg leading-8 text-slate-600">
-                        Ready to get in touch with <span className="font-semibold text-indigo-600">Us</span>.
-                        We're here to assist you with any questions or concerns you may have. Please don't hesitate to reach out.
+                    <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                        Questions? We're here to help. Contact us anytime.
                     </p>
                 </div>
 
@@ -100,7 +108,7 @@ const Contact = () => {
                 <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-24">
                     {/* Left: Info */}
                     <div className="space-y-8">
-                        <h3 className="text-3xl font-extrabold text-slate-900 mb-6 border-b pb-2 border-indigo-100">Contact Info</h3>
+                        <h3 className="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-3">Contact Info</h3>
 
                         <div className="flex items-start space-x-4">
                             <EnvelopeIcon className="h-6 w-6 text-indigo-600 mt-1 flex-shrink-0" />
@@ -123,9 +131,9 @@ const Contact = () => {
 
 
                     {/* Right: Contact Form */}
-                    <div className="bg-white rounded-2xl p-8 shadow-xl border border-indigo-100">
-                        <h3 className="text-2xl font-bold text-slate-900 mb-6">Quick Contact</h3>
-                        <p className="mb-6 text-slate-600">Interested in discussing? Please feel free to get in touch using the form below.</p>
+                    <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
+                        <h3 className="text-xl font-bold text-slate-900 mb-4">Send a Message</h3>
+                        <p className="mb-6 text-slate-600 text-sm">Fill out the form and we'll respond shortly.</p>
 
                         <form ref={form} onSubmit={handleSubmit} className="space-y-4">
                             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -136,7 +144,7 @@ const Contact = () => {
                                     onChange={handleChange}
                                     placeholder="First Name *"
                                     required
-                                    className="w-full rounded-lg border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:outline-none focus:ring-indigo-600 sm:text-sm"
+                                    className="w-full rounded-lg border border-slate-300 px-3 py-2 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
                                 />
                                 <input
                                     type="text"
@@ -144,7 +152,7 @@ const Contact = () => {
                                     value={formData.lastName}
                                     onChange={handleChange}
                                     placeholder="Last Name"
-                                    className="w-full rounded-lg border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:outline-none focus:ring-indigo-600 sm:text-sm"
+                                    className="w-full rounded-lg border border-slate-300 px-3 py-2 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
                                 />
                             </div>
                             <input
@@ -154,7 +162,7 @@ const Contact = () => {
                                 onChange={handleChange}
                                 placeholder="Email *"
                                 required
-                                className="w-full rounded-lg border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:outline-none focus:ring-indigo-600 sm:text-sm"
+                                className="w-full rounded-lg border border-slate-300 px-3 py-2 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
                             />
 
                             <input
@@ -163,7 +171,7 @@ const Contact = () => {
                                 value={formData.subject}
                                 onChange={handleChange}
                                 placeholder="Subject"
-                                className="w-full rounded-lg border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:outline-none focus:ring-indigo-600 sm:text-sm"
+                                className="w-full rounded-lg border border-slate-300 px-3 py-2 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
                             />
                             <input
                                 type="tel"
@@ -171,7 +179,7 @@ const Contact = () => {
                                 value={formData.phone}
                                 onChange={handleChange}
                                 placeholder="Phone"
-                                className="w-full rounded-lg border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:outline-none focus:ring-indigo-600 sm:text-sm"
+                                className="w-full rounded-lg border border-slate-300 px-3 py-2 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
                             />
                             <textarea
                                 name="message" // IMPORTANT: Used as template variable
@@ -180,7 +188,7 @@ const Contact = () => {
                                 placeholder="Enter your Comment *"
                                 rows={4}
                                 required
-                                className="w-full rounded-lg border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:outline-none focus:ring-indigo-600 sm:text-sm"
+                                className="w-full rounded-lg border border-slate-300 px-3 py-2 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
                             />
 
                             {/* Status Messages */}
@@ -210,7 +218,8 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
+        </>
     );
 };
 

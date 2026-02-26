@@ -14,11 +14,10 @@ const ServiceOverview = () => {
                     <h2 className="text-xl font-semibold text-slate-500 uppercase tracking-widest">
                         Seamless Streaming Utility
                     </h2>
-                    <p className="mt-4 text-5xl font-extrabold text-slate-900 leading-tight">
-                        The Ultimate Toolkit for Content Streamers
-                    </p>
-                    <p className="mt-6 text-lg text-slate-600 max-w-2xl mx-auto leading-7">
-                        In the ever-evolving world of digital media, accessing and managing your preferred content sources should be effortless. Our platform provides a comprehensive suite of powerful and user-friendly tools designed to optimize your viewing experience.
+                    <p className="mt-4 text-3xl sm:text-4xl font-bold text-slate-900 leading-tight">
+The Complete Set of Tools for People Who Stream Content                    </p>
+                    <p className="mt-6 text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                        Right from the start, staying connected to what you watch matters more than ever. Built into how things work now, getting hold of favorite streams fits smoothly into daily life. Instead of clutter, clean design guides each choice. With features that respond fast, navigation feels natural. Watching unfolds without pauses. Tools adapt quietly, matching habits over time. Everything lines up so attention stays on content, never on controls.
                     </p>
                 </div>
 
@@ -33,13 +32,13 @@ const ServiceOverview = () => {
 
                         {/* Right Side: Content */}
                         <div className="p-10 w-3/4">
-                            <dt className="flex items-center text-2xl font-bold text-slate-900 border-b pb-4 mb-4 border-indigo-50/50">
+                            <dt className="flex items-center text-xl font-bold text-slate-900 border-b pb-4 mb-4 border-indigo-50/50">
                                 <CheckCircleIcon className="h-6 w-6 text-indigo-500 mr-2" />
                                 Dedicated Focus on User Accessibility and Performance
                             </dt>
 
-                            <dd className="text-lg text-slate-700 leading-relaxed">
-                                Our infrastructure is meticulously engineered for maximum throughput and minimal latency, guaranteeing that any codes or profiles generated are delivered almost instantaneously. We prioritize an intuitive user interface that makes complex generation processes simple for everyone, regardless of technical expertise. This commitment to both speed and simplicity is what sets our service apart, providing a consistently superior experience for millions of users worldwide who rely on our tools daily for their entertainment needs.
+                            <dd className="text-base text-slate-700 leading-relaxed">
+                               Speed comes first here, built right into how things run so everything moves fast without delays, meaning your codes show up nearly the moment they’re made. What you see matters just as much, designed so anyone can get going even if tech feels confusing or overwhelming at times. That mix - fast systems paired with clear design - is why people keep coming back, using these tools every day across the planet for fun and ease.
                             </dd>
                         </div>
                     </div>

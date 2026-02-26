@@ -1,4 +1,5 @@
 import React from "react";
+import Breadcrumb from "../../components/Breadcrumb";
 import { DocumentTextIcon, ShieldCheckIcon, CurrencyDollarIcon, UsersIcon, ArrowPathIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
 
 const TermsConditions = () => {
@@ -8,8 +9,7 @@ const TermsConditions = () => {
       icon: DocumentTextIcon,
       content: (
         <p>
-          This Terms and Conditions document is effective as of <strong>November 28th, 2025</strong>.
-        </p>
+Effective November 28th, 2025 - this agreement sets the rules moving forward. While dates matter, clarity matters more. The terms apply starting that day. Not before. Each line here shapes understanding going ahead. Though written plainly, it holds weight. Since change happens, updates may come later. Yet this version stands firm now.  </p>
       ),
     },
     {
@@ -17,8 +17,7 @@ const TermsConditions = () => {
       icon: ShieldCheckIcon,
       content: (
         <p>
-          By using the IPTV Generator service, you agree to comply with and be legally bound by these terms. 
-          If you do not agree, please do not use the service.
+Using the IPTV Generator means you accept these rules without exception. Should those conditions not sit right with you, step away from the platform entirely
         </p>
       ),
     },
@@ -27,8 +26,7 @@ const TermsConditions = () => {
       icon: DocumentTextIcon,
       content: (
         <p>
-        IPTV Generator is a utility that generates sample IPTV credentials (URL, Username, Password, Expiry, and Region) 
-          for demonstration or educational purposes. These codes are not guaranteed to provide access to any specific IPTV service.
+   A tool called IPTV Generator creates example login details - like address, name, password, date limits, and location - just for showing how things work. Though it builds realistic formats, there is no promise these will connect to real streaming platforms. Used mostly in training or testing setups, the output acts as placeholder data instead of live keys. Access depends on actual providers, which this generator does not control or represent. Its role stays limited to mimicking structure without linking to external services.
         </p>
       ),
     },
@@ -37,8 +35,7 @@ const TermsConditions = () => {
       icon: CurrencyDollarIcon,
       content: (
         <p>
-          This application is supported by advertisements. Ads may appear during usage (e.g., generating credentials). 
-          By using the service, you consent to the presence of such ads.
+         Using the app means seeing ads now and then - like when creating login details. These interruptions are part of how it works. Accepting this happens automatically once you start using it.
         </p>
       ),
     },
@@ -47,11 +44,11 @@ const TermsConditions = () => {
       icon: UsersIcon,
       content: (
         <ul className="list-disc ml-6 space-y-2">
-          <li>Use the service only for lawful purposes.</li>
-          <li>Do not violate any local, national, or international law or regulation.</li>
-          <li>Do not attempt to misuse, reverse engineer, or exploit the service.</li>
-          <li>Do not share or distribute illegal IPTV content.</li>
-          <li>Do not attempt unauthorized access to other systems or services.</li>
+         Use the service only for lawful purposes.
+Always follow rules that apply where you are, across regions, countries, or global standards.
+Trying to twist, take apart, or game the system won’t work. Hacking at its core or bending rules leads nowhere. Using it wrongly just stops things moving forward. Every shortcut fails before it starts.
+Sharing unlawful IPTV material breaks rules. Spreading such streams invites trouble. Passing around forbidden viewing links leads to consequences. Circulating unapproved video feeds crosses lines. Distributing restricted TV services causes issues.
+Stay away from trying to get into systems you are not allowed to use.
         </ul>
       ),
     },
@@ -60,8 +57,7 @@ const TermsConditions = () => {
       icon: DocumentTextIcon,
       content: (
         <p>
-          All content provided through IPTV Generator, including design, text, software, and branding, 
-          is the property of its respective owners and protected by copyright and intellectual property laws.
+         Whatever appears via IPTV Generator - layouts, words, code, logos - belongs to those who made it. Each piece stays under legal shield through copyrights and ownership rules meant for creative work.
         </p>
       ),
     },
@@ -70,8 +66,7 @@ const TermsConditions = () => {
       icon: ShieldCheckIcon,
       content: (
         <p>
-         IPTV Generator is provided “as is” and “as available” without warranties of any kind. 
-          We make no guarantees regarding the availability, accuracy, or reliability of the IPTV codes or related data.
+        Even though it works most times, the IPTV Generator comes without promises. You get it just like that - no assurances attached. Things might break, change, or stop working without warning. Accuracy of codes isn’t something we can stand behind. Data could be off, incomplete, or outdated at any moment. Reliability? Not guaranteed. What you see is what you deal with, nothing more.
         </p>
       ),
     },
@@ -80,8 +75,7 @@ const TermsConditions = () => {
       icon: ArrowPathIcon,
       content: (
         <p>
-          We reserve the right to terminate or suspend access to the service without notice, for any reason, 
-          including breach of these Terms.
+          Suspension or termination of service access may happen at any time, no warning needed. Reason? Breaking these rules could do it. The company decides when someone can no longer use the system.
         </p>
       ),
     },
@@ -90,8 +84,7 @@ const TermsConditions = () => {
       icon: ArrowPathIcon,
       content: (
         <p>
-          We may modify these Terms at any time. Updated versions will be posted, and continued use of the service 
-          indicates acceptance of the new terms.
+          Changes can happen to these rules whenever needed. New versions show up online right after updates. Sticking with the service means you are okay with what’s changed.
         </p>
       ),
     },
@@ -100,8 +93,7 @@ const TermsConditions = () => {
       icon: ShieldCheckIcon,
       content: (
         <p>
-          These Terms shall be governed and interpreted in accordance with the laws of your country or region, 
-          without regard to conflict of law provisions.
+          Whichever nation you call home sets the rules here. Laws from that place apply, full stop. Conflicting legal ideas from elsewhere? They do not matter. How things are read follows local practice only. Outside influence gets left out entirely
         </p>
       ),
     },
@@ -110,18 +102,23 @@ const TermsConditions = () => {
       icon: EnvelopeIcon,
       content: (
         <p>
-          For any questions or concerns regarding these Terms, please contact us at: 
-          <a className="text-indigo-600 underline ml-1" href="mailto:mohcin15000@gmail.com">mohcin15000@gmail.com</a>
+          Got a question about these Terms? Reach out anytime by emailing mohcin15000@gmail.com. Messages sent there will get attention. We’re available if something isn’t clear. Thoughts or confusion - just write in. This address handles all feedback tied to the rules above. No query is too small when it comes to clarity. Drop an email whenever you need answers
         </p>
       ),
     },
   ];
 
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-white py-24 sm:py-32">
+    <>
+      <Breadcrumb items={[
+        { label: 'Home', path: '/' },
+        { label: 'Legal', path: '/legal' },
+        { label: 'Terms & Conditions', path: '/legal/terms' }
+      ]} />
+      <div className="bg-gradient-to-b from-gray-50 to-white py-24 sm:py-32">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <h1 className="text-5xl font-extrabold text-slate-900 text-center mb-6">
-          Terms & Conditions
+          Terms and Conditions
         </h1>
         <p className="text-lg sm:text-xl text-slate-600 text-center max-w-3xl mx-auto mb-16">
           Welcome to <span className="font-semibold text-slate-900">IPTV Generators</span>. 
@@ -146,7 +143,8 @@ const TermsConditions = () => {
           })}
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

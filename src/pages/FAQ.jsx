@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
+import SEO from "../components/SEO";
+import Breadcrumb from "../components/Breadcrumb";
 
 const faqs = [
     {
@@ -7,19 +9,19 @@ const faqs = [
         questions: [
             {
                 question: "What is IPTV Factory and what services do you provide?",
-                answer: "IPTV Factory is a professional platform that provides code generation tools for legitimate IPTV services. We help users configure and connect to their legally purchased IPTV subscriptions by generating properly formatted Xtream API codes and Stalker middleware configurations. Our tools simplify the technical setup process, making it easier for subscribers to access their paid content across various devices and applications."
+                answer: "Sure, using IPTV Factory falls within the law. Because only folks with active, official subscriptions access our system. The tools we offer adjust settings so real streaming platforms work properly. Connection data gets arranged without storing videos or shows ourselves. Nothing here lets you stream material you haven’t permission to view. What runs through our setup comes strictly from approved sources out there. Using these tools to reach unapproved or copied material is not allowed. Whoever uses them must make sure they hold valid permissions for whatever IPTV setup they link up with."
             },
             {
                 question: "Is using IPTV Factory legal?",
                 answer: "Yes, IPTV Factory is completely legal. Our platform is designed exclusively for users who have valid, paid subscriptions to authorized IPTV services. We provide configuration tools that help format connection details for legitimate streaming services. We do not provide, host, or distribute any copyrighted content. We strictly prohibit the use of our tools for accessing unauthorized or pirated content. Users are responsible for ensuring they have proper licenses for any IPTV service they connect to."
             },
             {
-                question: "Do I need technical knowledge to use your generators?",
-                answer: "No technical expertise is required. Our platform is designed with user-friendliness in mind. The code generation process is streamlined into simple, step-by-step actions. Whether you're generating Xtream codes or Stalker configurations, our intuitive interface guides you through each stage. We also provide detailed setup guides and tutorials to help you configure your IPTV applications and devices with the generated codes."
+                question: "Do I need technical knowledge to use your generators??",
+                answer: "Anyone can use it, even without tech skills. Built around ease of use, the system keeps things clear. Steps unfold one at a time, making coding feel natural. From Xtream setups to Stalker formats, navigation stays smooth. Each phase comes with on-screen direction. Help appears exactly when needed. Guides walk you through device links and app settings. Tutorials cover every part of the activation flow."
             },
             {
-                question: "Is IPTV Factory really free to use?",
-                answer: "Yes, IPTV Factory is completely free to use. We support our platform through non-intrusive advertisements that help us maintain our servers, develop new features, and provide reliable service to our users. There are no hidden fees, subscription charges, or premium tiers. All our code generation tools and resources are accessible to everyone at no cost."
+                question: "Is IPTV Factory Actually Free?",
+                answer: "Sure thing - using IPTV Factory doesn’t cost a dime. Because ads back the site, we keep things running without bothering you too much. Servers stay up, updates happen, bugs get fixed - all thanks to that quiet ad support. No secret pricing tricks hiding behind the scenes. Forget about monthly bills or upgrade traps either. Every tool we build sits open for anyone who wants it. Not one feature locks you out unless you pay. Access stays wide open, always."
             }
         ]
     },
@@ -28,19 +30,19 @@ const faqs = [
         questions: [
             {
                 question: "What is an Xtream Code and why do I need it?",
-                answer: "Xtream Codes is an API protocol used by many legitimate IPTV service providers to deliver streaming content. An Xtream code consists of a server URL, username, and password that authenticate your subscription. Many IPTV applications (like IPTV Smarters, TiviMate, Perfect Player) require these credentials in a specific format. Our Xtream Code Generator helps you organize and format these details correctly, ensuring seamless connection to your paid IPTV service."
+                answer: "Streaming services often rely on a system called Xtream Codes to manage access. Not every viewer knows how it works, yet they use it daily through apps like TiviMate or IPTV Smarters. A working setup needs three things: a login name, a secret word, a web address pointing to the source. These parts must fit together just right - otherwise, nothing plays. Instead of puzzling over formats, some people use a tool that arranges each piece properly. It doesn’t grant subscriptions; it only lines up what you already have. When structured well, the data connects without hiccups to the intended stream. Wrong spacing? Misplaced symbol? That kind of error breaks the chain. This helper avoids those slipups quietly, behind the scenes. Access remains yours alone, unchanged except in presentation."
             },
             {
                 question: "How do I use the generated Xtream codes?",
-                answer: "After generating your Xtream codes through our platform, you can use them in any compatible IPTV player application. Simply open your preferred IPTV app, select 'Add Playlist' or 'Login with Xtream Codes,' and enter the URL, username, and password we generated. The app will then connect to your IPTV provider's server and load your subscribed channels. We provide download options (TXT, image) and sharing features to make it easy to transfer these credentials to your devices."
+                answer: "Once you get your Xtream codes from us, they work in most IPTV apps. Open the app you like, go to 'Add Playlist' or choose 'Login with Xtream Codes.' Put in the URL, username, and password we give you. From there, the app reaches out to the server and pulls up your channels. You can grab those details as a TXT file or even a picture. Sharing is built in, so moving logins between gadgets takes almost no effort."
             },
             {
                 question: "Can I select a specific region for my Xtream codes?",
-                answer: "Yes, our Xtream Code Generator includes a region selection feature. This allows you to generate codes optimized for specific geographic locations, which can improve streaming performance by connecting you to the nearest server. Region-specific codes may also provide access to localized content channels that are part of your subscription package. Simply select your preferred region before generating the codes."
+                answer: "Sure, the Xtream Code Generator lets you pick a region. When you do, it creates codes tuned to that area, helping you link up with closer servers for smoother streaming. Depending on where you choose, certain local channels included in your plan might become available. Pick your location first, then create the code. The system adjusts based on your selection automatically."
             },
             {
                 question: "What does the expiration date mean?",
-                answer: "The expiration date indicates when your IPTV subscription or the generated credentials will expire. This is determined by your service provider and reflects the validity period of your paid subscription. After this date, you'll need to renew your subscription with your IPTV provider. Our generator displays this information to help you track when renewal is needed. We do not control or extend expiration dates—this is managed by your IPTV service provider."
+                answer: "When your IPTV access ends, that's what the expiration date shows - the moment your login details stop working. Service providers set it based on how long you've paid for. Once reached, access stops unless renewed through them directly. You’ll see this deadline in our tool so timing stays clear. Renewal rules? Not ours to change. The provider handles all time extensions - or lack thereof."
             }
         ]
     },
@@ -49,19 +51,19 @@ const faqs = [
         questions: [
             {
                 question: "What is Stalker middleware and how does it work?",
-                answer: "Stalker (also known as MAG middleware) is a portal-based IPTV delivery system commonly used by set-top boxes and smart TV applications. Unlike Xtream codes, Stalker uses a combination of a portal URL and a MAC address for authentication. The portal URL is your IPTV provider's server address, while the MAC address uniquely identifies your device. Our Stalker Code Generator creates properly formatted virtual MAC addresses and portal configurations that work with STB Emulator apps and MAG devices."
+                answer: "What hides behind the name MAG middleware? That is Stalker - an IPTV method built around portals, often found inside set-top units or television software. Instead of relying on Xtream-style logins, it pairs a portal link with a hardware ID from your machine. One part points to the provider’s online hub, the other acts like a fingerprint for your gadget. Try our tool: it builds fake but valid-looking MACs alongside correct portal setups, ready for emulators or real MAG boxes."
             },
             {
                 question: "What is a MAC address in IPTV context?",
-                answer: "In IPTV terminology, a MAC address is a unique identifier assigned to your streaming device or application. For Stalker-based services, this MAC address is registered with your IPTV provider and linked to your subscription. When you connect to the portal, the server verifies your MAC address to authenticate your access. Our generator creates virtual MAC addresses in the correct format (00:1A:79:XX:XX:XX) that are compatible with STB Emulator applications and similar platforms."
+                answer: "Each streaming gadget gets its own ID number called a MAC address. Used by IPTV systems, it ties your account to one specific setup. When logging into the service, the system checks this ID before letting you in. Instead of using real hardware, fake IDs can be made to match what Stalker portals expect. These generated codes follow the pattern 00:1A:79:XX:XX:XX on purpose. They work inside emulator apps built for set-top box simulations. Access stays valid only if the format matches exactly. Matching the right structure helps maintain stable login sessions."
             },
             {
                 question: "Can I use Stalker codes on multiple devices?",
-                answer: "This depends on your IPTV provider's subscription terms. Typically, each MAC address is tied to a single device or application instance. Some providers allow multiple device registrations under one subscription, while others limit access to one device at a time. Our generator can create codes for different devices, but you must ensure this complies with your provider's terms of service. Always check with your IPTV service provider regarding their multi-device policies."
+                answer: "It all comes down to what your IPTV provider allows. Usually, every MAC address works with just one device or app setup. Although some let you sign in on more than one gadget at once, others only permit a single active connection. While our tool builds identifiers for various machines, it remains your job to confirm that matches the rules set by your service. Before anything else, look into how your provider handles logging in from several devices."
             },
             {
                 question: "Which apps support Stalker codes?",
-                answer: "Stalker codes are compatible with various applications and devices, including STB Emulator (Android/iOS), MAG set-top boxes, Smart IPTV, and several other middleware-based players. The most popular application is STB Emulator, which simulates a MAG device on smartphones and tablets. After generating your Stalker codes through our platform, simply enter the portal URL and MAC address in your chosen application's settings to establish the connection."
+                answer: "One way to start - stalker codes work across different apps and gadgets. Not just limited to one type, they fit into STB Emulator on both Android and iOS systems. Think beyond phones: MAG set-top boxes run them too. Another option pops up with Smart IPTV support included. Even some lesser-known middleware-driven players handle these codes without issue. Among all choices, STB Emulator stands out as the top pick. It mimics how a MAG device behaves, right inside your tablet or smartphone. Once you’ve created your stalker codes using our system, move to app settings. There, drop in the portal URL along with the MAC address. Connection kicks in after that step completes."
             }
         ]
     },
@@ -70,19 +72,19 @@ const faqs = [
         questions: [
             {
                 question: "Why isn't my generated code working?",
-                answer: "If your generated code isn't working, several factors could be at play: (1) Verify that your IPTV subscription is active and hasn't expired. (2) Ensure you've entered the credentials exactly as generated, without extra spaces or typos. (3) Check that you're using a compatible IPTV application. (4) Confirm your internet connection is stable. (5) Some providers may have server maintenance or temporary outages. If problems persist, contact your IPTV service provider directly, as they manage the actual streaming service and can verify your subscription status."
+                answer: "When code fails, start by checking if the IPTV plan still runs. No expiry means it should work - unless typing errors slipped into login details. Exact match matters, every character counts when entering access keys. Another thing - a proper app makes a difference, pick one built for this stream type. Connection hiccups break playback, so test network strength first. Servers sometimes pause, due to updates or unexpected downtime. Stuck? Reach out straight to the company behind the service - they track accounts live and spot issues fast.."
             },
             {
                 question: "How often can I regenerate codes?",
-                answer: "You can regenerate codes as many times as needed at no cost. Our platform doesn't impose limits on code generation. However, keep in mind that regenerating codes doesn't extend your subscription or create new accounts—it simply reformats the connection details. The underlying subscription validity is controlled by your IPTV service provider. Regeneration is useful if you've lost your credentials, need to connect a new device, or want to switch to a different server region."
+                answer: "Feel free to refresh the codes whenever, completely free of charge. There are no caps set by our system when producing these access keys. Even so, picture this: making fresh ones won’t stretch out how long your plan lasts or spawn extra logins - it reshapes only the setup data. That timeline? It lives entirely under your IPTV supplier's control. Try it again if login info vanished, setting up another gadget, or shifting where the signal comes from."
             },
             {
                 question: "Do you store my generated codes or personal information?",
-                answer: "No, we do not store your generated codes or personal credentials. Our code generation process is completely stateless and occurs entirely in your browser. Once you close the page or regenerate new codes, the previous information is not retained on our servers. We prioritize your privacy and security by ensuring that sensitive subscription details remain exclusively under your control. For more details, please review our comprehensive Privacy Policy."
+                answer: "Closing the tab wipes everything - no trace of your codes stays behind. Your data never touches our servers; it lives only in your device while you work. Each time new tokens appear, the old ones vanish without a backup. What you create stays yours alone - we cannot access any part of it. Read the full Privacy Policy if you want to see exactly how we protect what belongs to you."
             },
             {
                 question: "What should I do if I detect an ad blocker warning?",
-                answer: "Our platform displays an ad blocker detection notice because we rely on advertising revenue to maintain our free services. We kindly ask users to disable ad blockers for our site or add us to their whitelist. Our advertisements are carefully selected to be non-intrusive and don't interfere with the code generation process. Supporting us through ad views helps us continue providing free, high-quality tools and regularly update our platform with new features."
+                answer: "Here’s why you see that message about ad blockers - keeping things running costs money, so ads help cover it. Try turning off your blocker when visiting here, maybe even allow them just for this place. These spots aren’t loud or pushy, they fit quietly around what you’re doing. Watching one now and then means we can keep building better versions of what’s already free. It keeps the lights on without slowing down how fast code comes out."
             }
         ]
     },
@@ -91,15 +93,15 @@ const faqs = [
         questions: [
             {
                 question: "How do you protect my data?",
-                answer: "We implement industry-standard security measures to protect user data. Our platform uses HTTPS encryption for all data transmission, ensuring that information exchanged between your browser and our servers is secure. We don't store sensitive credentials or personal information on our servers. Our code generation happens client-side in your browser whenever possible. We regularly update our security protocols and conduct audits to identify and address potential vulnerabilities. For complete details, please refer to our Data Security page."
+                answer: "At IPTV Factory, your privacy and security are our top priorities. We use End-to-End Encryption (SSL) to protect all data transmitted between your device and our servers. We do not store your credit card information directly; instead, we use secure, industry-leading payment gateways. Additionally, we have a strict No-Logs Policy, meaning we do not track or record your streaming activities. Our servers are protected by advanced firewalls to prevent unauthorized access, ensuring that your personal details remain 100% confidential and safe from third-party interference."
             },
             {
                 question: "Do you share my information with third parties?",
-                answer: "We do not sell, trade, or rent your personal information to third parties. We may share anonymized usage data with analytics providers to help us understand how users interact with our platform and improve our services. Any third-party service providers we work with (such as hosting or analytics companies) are bound by strict confidentiality agreements. We only share information when legally required by authorities or to protect our platform from fraud and misuse. See our Privacy Policy for comprehensive details."
+                answer: "It's clear - your personal details stay private, never passed on through sale, exchange, or rental. Instead of sharing raw data, what gets sent to analysis teams is stripped down, anonymous patterns showing how people use the site. Working alongside outside helpers like server hosts or tracking tools? Those partners sign strong privacy terms before seeing anything at all. When legal demands come in, disclosure happens only if law enforcement requires it. Safety matters too - limited access might be granted to stop abuse or fake activity. Full clarity lives in the full version found within the Privacy Policy itself.."
             },
             {
                 question: "Are cookies used on your website?",
-                answer: "Yes, we use cookies to enhance your browsing experience and improve our services. Cookies help us remember your preferences (such as selected regions), analyze site traffic, and understand user behavior patterns. We use both first-party cookies (set by our domain) and third-party cookies (from advertising and analytics partners). You can control cookie settings through your browser preferences, though disabling cookies may affect some functionality. Our cookie usage complies with applicable privacy regulations."
+                answer: "Sure, cookies make moving around our site smoother while helping us refine what we offer. Since they recall choices like your region pick, exploring feels more personal each visit. These small data bits let us study how people move through pages plus see broader habits over time. While ones placed directly on our domain handle basic functions, others arrive via ad networks and insight tools working with us. Adjusting their permissions happens inside browser menus, yet turning them off might dim certain features slightly. Staying within legal lines shapes how we apply these tracking methods consistently."
             }
         ]
     },
@@ -159,15 +161,22 @@ const FAQ = () => {
     };
 
     return (
-        <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
+        <>
+            <SEO
+                title="IPTV Factory FAQ - Answers to Common Questions"
+                description="Find answers to frequently asked questions about IPTV technology, code generators, setup, and troubleshooting. Expert solutions to common issues."
+                keywords="IPTV FAQ, IPTV questions, IPTV help, code generator FAQ, IPTV troubleshooting, setup questions, common issues"
+            />
+            <Breadcrumb />
+            <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
             {/* Hero Section */}
-            <div className="bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 text-white py-20">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-                    <h1 className="text-5xl sm:text-6xl font-extrabold mb-6 tracking-tight">
+            <div className="bg-slate-900 text-white py-16">
+                <div className="max-w-5xl mx-auto px-6 lg:px-8 text-center">
+                    <h1 className="text-3xl sm:text-4xl font-bold mb-4 tracking-tight">
                         Frequently Asked Questions
                     </h1>
-                    <p className="text-xl sm:text-xl text-indigo-100 max-w-3xl mx-auto leading-relaxed">
-                        Find answers to common questions about IPTV Factory, our code generators, and how to get the most out of our platform.
+                    <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                        Find answers to common questions about IPTV Factory and how to use our tools effectively.
                     </p>
                 </div>
             </div>
@@ -178,7 +187,7 @@ const FAQ = () => {
                 <div className="space-y-12">
                     {faqs.map((category, categoryIndex) => (
                         <div key={categoryIndex}>
-                            <h2 className="text-3xl font-bold text-slate-900 mb-6 pb-3 border-b-4 border-indigo-600 inline-block">
+                            <h2 className="text-2xl font-bold text-slate-900 mb-4 pb-2 border-b border-indigo-200">
                                 {category.category}
                             </h2>
                             <div className="bg-white rounded-2xl shadow-lg overflow-hidden mt-6">
@@ -196,26 +205,24 @@ const FAQ = () => {
                     ))}
                 </div>
 
-                {/* In-Article Ad - Mid Content */}
-                <InArticleAd adSlot="3845463351" showLabel={true} />
-
                 {/* Still Have Questions Section */}
-                <div className="mt-20 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-3xl p-12 text-center shadow-xl">
-                    <h3 className="text-3xl font-bold text-slate-900 mb-4">
+                <div className="mt-20 bg-indigo-50 rounded-2xl p-8 text-center shadow-sm border border-slate-200">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-3">
                         Still Have Questions?
                     </h3>
-                    <p className="text-lg text-slate-700 mb-8 max-w-2xl mx-auto">
-                        Can't find the answer you're looking for? Our support team is here to help you with any questions or concerns.
+                    <p className="text-sm text-slate-700 mb-6 max-w-2xl mx-auto">
+                        Our support team is here to help.
                     </p>
                     <a
                         href="/contact"
-                        className="inline-block bg-indigo-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                        className="inline-block bg-indigo-600 text-white px-6 py-2 rounded-lg font-semibold text-sm hover:bg-indigo-700 transition-all duration-300 shadow-sm hover:shadow-md"
                     >
                         Contact Support
                     </a>
                 </div>
             </div>
-        </div>
+            </div>
+        </>
     );
 };
 

@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import * as XLSX from "xlsx";
 import { EyeIcon, ClipboardIcon, LockClosedIcon, GlobeAltIcon } from "@heroicons/react/24/outline";
 import html2canvas from "html2canvas";
+import SEO from "../components/SEO";
 import InterAd from "../components/InterAd";
 import ServiceOverview from "../components/HomeSections/ServiceOverview";
 import PrivacySecurity from "../components/HomeSections/PrivacySecurity";
@@ -892,20 +893,26 @@ Follow-Us: @IPTV_Factory
 
 
     return (
-        <div className="bg-gray-50">
+        <>
+            <SEO
+                title="Free IPTV Code Generator - Xtream, Stalker & STB Emulator"
+                description="Generate Xtream codes and Stalker MAC addresses instantly. Free IPTV tools for legitimate streaming. Secure, fast, and professional code generation."
+                keywords="IPTV generator, Xtream code generator, Stalker MAC generator, free IPTV tools, code generator, M3U IPTV, STB emulator setup"
+            />
+            <div className="bg-gray-50">
             {/* Hero Section (Unchanged) */}
             <div className="bg-slate-900 flex items-center">
                 <div className="mx-auto max-w-7xl px-6 py-08 sm:py-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-08 items-center">
                         <div>
-                            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white">
-                                Welcome to IPTV FACTORY.
+                            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
+                                Generate IPTV Codes Instantly
                             </h1>
-                            <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-xl">
-                                Generate Xtream and STBEMU codes instantly.
+                            <p className="mt-4 text-sm text-slate-300 leading-relaxed max-w-xl">
+                                Premium Xtream and Stalker codes in seconds
                                 Fast process, simple steps, and accurate codes.
                             </p>
-                            <div className="mt-6 flex items-center gap-x-6">
+                            <div className="mt-6 flex items-center gap-x-4">
                                 <a
                                     href="#tools"
                                     className="rounded-xl bg-primary-600 px-5 py-3 text-sm font-semibold text-white shadow-lg hover:bg-primary-500 transition"
@@ -939,10 +946,10 @@ Follow-Us: @IPTV_Factory
             <div id="tools" className="py-4 sm:py-12 bg-slate-50">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="mx-auto max-w-2xl text-center">
-                        <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                        <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
                             Select Your Tool
                         </h2>
-                        <p className="mt-2 text-lg leading-8 text-slate-600">
+                        <p className="mt-2 text-base leading-relaxed text-slate-600">
                             Choose the generator you need to get started immediately.
                         </p>
                     </div>
@@ -1092,7 +1099,7 @@ Follow-Us: @IPTV_Factory
                                         }}
                                     >
                                         {/* --- EXISTING ACCOUNT DETAILS --- */}
-                                        <h3 className="text-xl font-bold mb-4 text-center text-slate-800 border-b pb-2">
+                                        <h3 className="text-lg font-bold mb-4 text-center text-slate-800 border-b pb-2">
                                             XTREAM Account Credentials
                                         </h3>
                                         <div className="space-y-3 font-mono text-sm">
@@ -1288,7 +1295,7 @@ Follow-Us: @IPTV_Factory
                                         }}
                                     >
                                         {/* --- STALKER ACCOUNT DETAILS --- */}
-                                        <h3 className="text-xl font-bold mb-4 text-center text-slate-800 border-b pb-2">
+                                        <h3 className="text-lg font-bold mb-4 text-center text-slate-800 border-b pb-2">
                                             Stalker/STB Account Credentials
                                         </h3>
                                         <div className="space-y-3 font-mono text-sm">
@@ -1411,7 +1418,8 @@ Follow-Us: @IPTV_Factory
             <WhyChooseUs />
             {/* Ad Trigger */}
             {showAd && <InterAd onClose={() => setShowAd(false)} />}
-        </div>
+            </div>
+        </>
     );
 };
 

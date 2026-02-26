@@ -1,4 +1,5 @@
 import React from "react";
+import Breadcrumb from "../../components/Breadcrumb";
 import { ShieldCheckIcon, LockClosedIcon, ServerIcon, ArrowPathIcon } from "@heroicons/react/24/outline";
 
 const DataSecurity = () => {
@@ -8,8 +9,7 @@ const DataSecurity = () => {
       icon: ShieldCheckIcon,
       content: (
         <p>
-          We are dedicated to maintaining the security of your data. Although we do not collect personally identifiable information, 
-          we implement industry-standard security practices to protect any non-personal data collected during your interaction with our service.
+         Staying safe online matters most. Even if we never gather personal details, safeguards still go up around whatever you share while using what we offer. Security moves happen behind the scenes - routine ones, tested ones - all meant to guard what passes through
         </p>
       ),
     },
@@ -18,17 +18,20 @@ const DataSecurity = () => {
       icon: LockClosedIcon,
       content: (
         <p>
-          Sensitive data is transmitted securely using encryption protocols such as SSL/TLS, ensuring information is protected in transit. 
-          Only authorized personnel with special access rights can view encrypted data.
+        When sensitive data moves across networks, it travels under lock via encryption like SSL/TLS - keeping it safe while en route. Access to that scrambled information? Limited strictly to approved individuals who hold specific permissions.
+
+
         </p>
       ),
     },
     {
-      title: "Servers & Firewalls",
+      title: "Servers and Firewalls",
       icon: ServerIcon,
       content: (
         <p>
-          Our services utilize secure servers and firewalls provided by trusted hosting platforms to protect data from unauthorized access and vulnerabilities.
+         Fences around digital space come from reliable hosts, using strong barriers so outsiders cannot slip through. Locked pathways guard what matters, keeping information away from risk.
+
+
         </p>
       ),
     },
@@ -37,7 +40,7 @@ const DataSecurity = () => {
       icon: ArrowPathIcon,
       content: (
         <p>
-          We regularly update our software to patch known vulnerabilities, minimizing risks and maintaining a secure environment for all interactions.
+         Each time we improve the software, fixes go in for recognized weaknesses, cutting down threats while keeping every interaction safe by design. Updates happen often so protection stays strong behind the scenes.
         </p>
       ),
     },
@@ -46,7 +49,7 @@ const DataSecurity = () => {
       icon: ShieldCheckIcon,
       content: (
         <p>
-          Strict access controls are enforced to minimize data exposure. Only authorized personnel have access to sensitive systems and information.
+          Machines lock down who can peek at files. Access stays limited to those cleared by security checks.
         </p>
       ),
     },
@@ -55,7 +58,7 @@ const DataSecurity = () => {
       icon: ShieldCheckIcon,
       content: (
         <p>
-          No method of transmission over the Internet or electronic storage is 100% secure. While we use commercially acceptable means to protect your information, absolute security cannot be guaranteed.
+         Even when safeguards are applied, no digital data transfer or storage can ever claim perfect safety. We rely on standard industry practices to guard what you share, yet complete protection remains out of reach. Security measures help, still gaps may exist without warning.
         </p>
       ),
     },
@@ -64,14 +67,20 @@ const DataSecurity = () => {
       icon: ArrowPathIcon,
       content: (
         <p>
-          In the unlikely event of a security breach compromising your data, we will take appropriate measures to notify users and mitigate the issue in accordance with applicable laws and regulations.
+          If a security problem ever touches your information, steps will be taken to inform people affected while handling the situation under current legal rules.
         </p>
       ),
     },
   ];
 
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-white py-24 sm:py-32">
+    <>
+      <Breadcrumb items={[
+        { label: 'Home', path: '/' },
+        { label: 'Legal', path: '/legal' },
+        { label: 'Data Security', path: '/legal/security' }
+      ]} />
+      <div className="bg-gradient-to-b from-gray-50 to-white py-24 sm:py-32">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <h1 className="text-5xl font-extrabold text-slate-900 text-center mb-6">
           Data Security
@@ -98,7 +107,8 @@ const DataSecurity = () => {
           })}
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

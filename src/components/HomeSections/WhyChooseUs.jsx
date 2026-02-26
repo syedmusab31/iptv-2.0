@@ -9,10 +9,10 @@ const WhyChooseUs = () => {
                     <h2 className="text-sm font-semibold text-primary-600 uppercase tracking-wide">
                         Why Choose Us
                     </h2>
-                    <p className="mt-3 text-4xl font-extrabold text-slate-900 sm:text-5xl">
+                    <p className="mt-3 text-3xl sm:text-4xl font-bold text-slate-900">
                         Everything You Need to Power Your Streams
                     </p>
-                    <p className="mt-6 text-lg text-slate-600 leading-relaxed">
+                    <p className="mt-6 text-base text-slate-600 leading-relaxed">
                         Our tools are engineered for professionals who demand reliability,
                         speed, and security ensuring a seamless experience every time.
                     </p>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Breadcrumb from '../../components/Breadcrumb';
 import {
     DocumentTextIcon,
     ShieldCheckIcon,
@@ -374,7 +375,13 @@ const TermsService = () => {
     ];
 
     return (
-        <div className="bg-gradient-to-b from-gray-50 via-white to-indigo-50 py-24 sm:py-32">
+        <>
+            <Breadcrumb items={[
+                { label: 'Home', path: '/' },
+                { label: 'Legal', path: '/legal' },
+                { label: 'Terms of Service', path: '/legal/service' }
+            ]} />
+            <div className="bg-gradient-to-b from-gray-50 via-white to-indigo-50 py-24 sm:py-32">
             <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="text-center mb-16">
@@ -449,7 +456,8 @@ const TermsService = () => {
                     </a>
                 </div>
             </div>
-        </div>
+            </div>
+        </>
     );
 };
 

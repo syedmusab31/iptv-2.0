@@ -8,11 +8,11 @@ const PrivacySecurity = () => {
                     <h2 className="text-sm font-semibold text-primary-600 uppercase tracking-wide">
                         Your Trust, Our Priority
                     </h2>
-                    <p className="mt-3 text-4xl font-extrabold text-slate-900 sm:text-5xl">
-                        Uncompromising Security and Data Confidentiality
+                    <p className="mt-3 text-3xl sm:text-4xl font-bold text-slate-900">
+                        Strict Security and Private Data
                     </p>
-                    <p className="mt-6 text-xl text-slate-700 leading-relaxed text-left pr-8 pl-8 md:pl-0 md:pr-0">
-                        We understand that privacy is paramount in the digital age. Our platform is built on a foundation of rigorous security protocols, ensuring that every interaction and data transmission is protected using industry-leading encryption standards. We strictly adhere to a no-log policy regarding user-generated content and input. Unlike other services, we do not store, track, or analyze the IPTV codes, Stalker profiles, or playlists you generate, guaranteeing that your personal streaming preferences remain completely anonymous and secure.
+                    <p className="mt-6 text-base text-slate-700 leading-relaxed text-left pr-8 pl-8 md:pl-0 md:pr-0">
+                     Every moment online needs protection, especially now. Built into our system are tough safeguards, so each exchange stays locked down through top-tier coding methods. Nothing gets recorded - no messages, nothing typed in ever sticks around. While some companies keep tabs, ours does not save, watch, or study any codes made here, like those for IPTV, Stalker setups, or channel lists. What you stream stays hidden, far from sight.
                     </p>
                 </div>
 
@@ -23,7 +23,7 @@ const PrivacySecurity = () => {
                             End-to-End Encryption
                         </dt>
                         <dd className="mt-4 text-slate-600 leading-7">
-                            All data exchanged during the generation process is protected with SSL/TLS encryption. This creates a secure tunnel between your browser and our servers, making it impossible for third parties to intercept or read the information, thus safeguarding your connection credentials from start to finish.
+                       Information shared while generating stays locked down using SSL or TLS protection. A hidden path opens up between your web app and the systems running behind, blocking outsiders from peeking through. Nobody grabs what flows inside - not halfway, not at any point along the way.
                         </dd>
                     </div>
                     <div className="rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-lg transition">
@@ -32,7 +32,7 @@ const PrivacySecurity = () => {
                             Ephemeral Processing Policy
                         </dt>
                         <dd className="mt-4 text-slate-600 leading-7">
-                            We only hold input data in memory for the immediate time required to generate your output. Once the results are displayed, the associated data is instantly and permanently purged from our system, upholding our commitment to maximum user privacy and zero data retention.
+                           Memory keeps your data just long enough to produce what you need. After showing the result, it vanishes without trace - gone for good. This is how we protect your privacy, fully and always.
                         </dd>
                     </div>
                 </div>
